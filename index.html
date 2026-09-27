@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusSphere - Smart College Discovery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <div class="logo">
+            🎓 CampusSphere
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#colleges">Colleges</a>
+            <a href="#hostels">Hostels</a>
+            <a href="#favorites">❤️ Favorites</a>
+            <a href="#about">About</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <h1>Discover Colleges Around You</h1>
+
+            <p>
+                Search for colleges by simply entering a city name.
+            </p>
+
+
+            <div class="search-box">
+
+                <div class="search-wrapper">
+
+                    <input
+                        type="text"
+                        id="cityInput"
+                        placeholder="Enter city name..."
+                        oninput="showSuggestions()"
+                        onkeydown="if(event.key === 'Enter') searchColleges()"
+                    >
+
+                    <div id="suggestions" class="suggestions"></div>
+
+                </div>
+
+
+                <button onclick="searchColleges()">
+                    🔎 Search Colleges
+                </button>
+
+
+                <button onclick="clearSearch()" class="clear-button">
+                    ✖ Clear
+                </button>
+
+            </div>
+
+
+            <!-- Popular Cities -->
+            <div class="popular-cities">
+
+                <p>Popular Cities</p>
+
+                <button onclick="selectCity('Bhopal')">
+                    Bhopal
+                </button>
+
+                <button onclick="selectCity('Indore')">
+                    Indore
+                </button>
+
+                <button onclick="selectCity('Jabalpur')">
+                    Jabalpur
+                </button>
+
+                <button onclick="selectCity('Delhi')">
+                    Delhi
+                </button>
+
+                <button onclick="selectCity('Mumbai')">
+                    Mumbai
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Colleges -->
+        <section
+            class="results-section"
+            id="colleges"
+        >
+
+            <h2 id="resultTitle">
+                Explore Colleges
+            </h2>
+
+
+            <div
+                id="collegeList"
+                class="college-list"
+            >
+
+                <div class="welcome-card">
+
+                    <div class="college-icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        Find Your College
+                    </h3>
+
+                    <p>
+                        Enter a city above to discover colleges.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Hostels -->
+        <section
+            class="results-section hostel-section"
+            id="hostels"
+        >
+
+            <h2>
+                🏠 Nearby Student Hostels
+            </h2>
+
+            <p>
+                Find student accommodation in your selected city.
+            </p>
+
+
+            <div
+                id="hostelList"
+                class="college-list"
+            >
+
+                <div class="welcome-card">
+
+                    <div class="college-icon">
+                        🏠
+                    </div>
+
+                    <h3>
+                        Find Student Hostels
+                    </h3>
+
+                    <p>
+                        Search a city to discover available hostels.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Favorites -->
+        <section
+            class="favorites-section"
+            id="favorites"
+        >
+
+            <h2>
+                ❤️ My Favorite Colleges
+            </h2>
+
+            <p class="favorite-count">
+                Saved Colleges:
+                <strong id="favoriteCount">0</strong>
+            </p>
+
+
+            <div
+                id="favoriteList"
+                class="college-list"
+            >
+
+                <div class="welcome-card">
+
+                    <div class="college-icon">
+                        ❤️
+                    </div>
+
+                    <h3>
+                        No Favorite Colleges
+                    </h3>
+
+                    <p>
+                        Save a college to see it here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- College Details Modal -->
+
+    <div
+        id="collegeModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="close-modal"
+                onclick="closeCollegeModal()"
+            >
+                ✖
+            </button>
+
+
+            <div
+                class="modal-icon"
+                id="modalIcon"
+            >
+                🎓
+            </div>
+
+
+            <span
+                class="college-type"
+                id="modalType"
+            >
+                College
+            </span>
+
+
+            <h2 id="modalName">
+                College Name
+            </h2>
+
+
+            <p id="modalAddress">
+                📍 Address
+            </p>
+
+
+            <div class="modal-buttons">
+
+                <a
+                    id="modalMap"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="map-button"
+                >
+                    📍 View on Map
+                </a>
+
+
+                <a
+                    id="modalWebsite"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="website-button"
+                >
+                    🌐 Official Website
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer id="about">
+
+        <p>
+            © 2026 CampusSphere | Smart College Discovery Platform
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
